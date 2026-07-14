@@ -7,44 +7,27 @@
 		"abi": [
 			{
 				"inputs": [],
+				"name": "balance",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "decrease",
+				"outputs": [],
 				"stateMutability": "nonpayable",
-				"type": "constructor"
-			},
-			{
-				"inputs": [],
-				"name": "getMessage",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "message",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "newMessage",
-						"type": "string"
-					}
-				],
-				"name": "setMessage",
+				"name": "increase",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -63,7 +46,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/HelloWorld.sol": "HelloWorld"
+			"contracts/MathOperation.sol": "MathOperation"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},
@@ -77,12 +60,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/HelloWorld.sol": {
-			"keccak256": "0x3f5b808ebe611e3def4396fbcec34daa7f974e6e19f103ec178b89e889375548",
+		"contracts/MathOperation.sol": {
+			"keccak256": "0xd77dfa689fc50f1aa75c80b762db9b74cb3e3add7e28926285d12da444dd6ed7",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://2ecab4bf915b2b11e3f1aea56848d69cb56e1eec9703882dbdc242f0c8be6750",
-				"dweb:/ipfs/Qmddd639fGvR2sJiQYKbyL5zFr5SGLQsf6AznS4sAR85hh"
+				"bzz-raw://583d1bed5eefdb0112d932d149dc7d7ab8ddd1423f3b3b6c2fad85c0558b1adf",
+				"dweb:/ipfs/QmfP7mAbPF4iTeUz36bc3gW4VURgh2RaqzU85SP3wJ2osa"
 			]
 		}
 	},

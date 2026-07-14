@@ -573,30 +573,6 @@
       }
     }
   },
-  "contracts/Values.sol": {
-    "__sources__": {
-      "contracts/Values.sol": {
-        "content": "// SPDX-License-Identifier: MIT\r\n\r\npragma solidity ^0.8.26;\r\n\r\ncontract FindMinMaxValue {\r\n\r\n     uint8 public maxValue_uint8 = type(uint8).max;\r\n     uint16 public maxValue_uint16 = type(uint16).max;\r\n     uint32 public maxValue_uint32 = type(uint32).max;\r\n     uint256 public maxValue_uint256 = type(uint256).max;\r\n\r\n     int8 public maxValue_int8 = type(int8).max;\r\n     int16 public maxValue_int16 = type(int16).max;\r\n     int32 public maxValue_int32 = type(int32).max;\r\n     int256 public maxValue_int256 = type(int256).max;\r\n\r\n}",
-        "file": "contracts/Values.sol"
-      }
-    }
-  },
-  "contracts/HelloWorld.sol": {
-    "__sources__": {
-      "contracts/HelloWorld.sol": {
-        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.26;\r\ncontract HelloWorld {\r\n    string public message;\r\n\r\n    constructor() {\r\n         \r\n    }\r\n\r\n    function getMessage() public view  returns (string memory) {\r\n        return message;\r\n    }\r\n\r\n    function setMessage(string memory newMessage) public {\r\n        message = newMessage;\r\n    }\r\n}",
-        "file": "contracts/HelloWorld.sol"
-      }
-    }
-  },
-  "contracts/HelloWorld2.sol": {
-    "__sources__": {
-      "contracts/HelloWorld2.sol": {
-        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.26;\r\ncontract HelloWorld {\r\n    string public message;\r\n\r\n    constructor(string memory newMessage) {\r\n        message = newMessage;\r\n    }\r\n\r\n    function getMessage() public view  returns (string memory) {\r\n        return message;\r\n    }\r\n\r\n    function setMessage(string memory newMessage) public {\r\n        message = newMessage;\r\n    }\r\n}",
-        "file": "contracts/HelloWorld2.sol"
-      }
-    }
-  },
   "@openzeppelin/contracts@5.6.1/access/Ownable.sol": {
     "../utils/Context.sol": ".deps/npm/@openzeppelin/contracts@5.6.1/utils/Context.sol"
   },
@@ -744,5 +720,56 @@
   },
   "@openzeppelin/contracts@5.6.1/interfaces/IERC721.sol": {
     "../token/ERC721/IERC721.sol": ".deps/npm/@openzeppelin/contracts@5.6.1/token/ERC721/IERC721.sol"
+  },
+  "contracts/ERC20/LT.sol": {
+    "__sources__": {}
+  },
+  "contracts/LT.sol": {
+    "__sources__": {
+      "contracts/LT.sol": {
+        "content": "// SPDX-License-Identifier: UNLICENSED\r\npragma solidity ^0.8.26;\r\n\r\ncontract LT {\r\n    address public manager;\r\n    address [] public players;\r\n    uint public winnerIndex;         // for testing\r\n    uint public totalParticipant;    // for testing\r\n    address public winnerPlayer;     // for testing\r\n\r\n    constructor() {\r\n        manager = msg.sender;\r\n\r\n    }\r\n\r\n\r\n    function enter() payable public {\r\n        require(msg.value >= 0.001 ether, \"Please enter more than 0.01 Ether\");\r\n        players.push(msg.sender);\r\n    }\r\n\r\n    function pickWinner()  public {\r\n        require(msg.sender == manager, \"ONLY manager\");\r\n        uint index = random() % players.length;\r\n       // winnerIndex = index;  // for testing\r\n        (bool success,) = players[index].call{value: (address(this).balance)}(\"\");\r\n        require(success, \"Transfer failed\");\r\n        // winnerPlayer = players[index];\r\n        // totalParticipant = players.length;    \r\n        // players = new address [](0);\r\n    }\r\n\r\n    function random() private view returns (uint) {\r\n        return uint(keccak256(abi.encodePacked(block.prevrandao, block.timestamp, players)));\r\n\r\n    }\r\n}",
+        "file": "contracts/LT.sol"
+      }
+    }
+  },
+  "contracts/HelloWorld2.sol": {
+    "__sources__": {
+      "contracts/HelloWorld2.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.26;\r\ncontract HelloWorld {\r\n    string public message;\r\n\r\n    constructor(string memory newMessage) {\r\n        message = newMessage;\r\n    }\r\n\r\n    function getMessage() public view  returns (string memory) {\r\n        return message;\r\n    }\r\n\r\n    function setMessage(string memory newMessage) public {\r\n        message = newMessage;\r\n    }\r\n}",
+        "file": "contracts/HelloWorld2.sol"
+      }
+    }
+  },
+  "contracts/Values.sol": {
+    "__sources__": {
+      "contracts/Values.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\n\r\npragma solidity ^0.8.26;\r\n\r\ncontract FindMinMaxValue {\r\n\r\n     uint8 public maxValue_uint8 = type(uint8).max;\r\n     uint16 public maxValue_uint16 = type(uint16).max;\r\n     uint32 public maxValue_uint32 = type(uint32).max;\r\n     uint256 public maxValue_uint256 = type(uint256).max;\r\n\r\n     int8 public maxValue_int8 = type(int8).max;\r\n     int16 public maxValue_int16 = type(int16).max;\r\n     int32 public maxValue_int32 = type(int32).max;\r\n     int256 public maxValue_int256 = type(int256).max;\r\n\r\n}",
+        "file": "contracts/Values.sol"
+      }
+    }
+  },
+  "contracts/MathOperation.sol": {
+    "__sources__": {
+      "contracts/MathOperation.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\n\r\npragma solidity ^0.8.0;\r\n\r\ncontract MathOperation {\r\n    uint8 public balance;\r\n\r\n    function decrease() public {  \r\n        require(balance >= 0, \"balance must be more than zero\");     \r\n        balance--;       \r\n    }\r\n\r\n    function increase() public {\r\n        balance++;\r\n    }\r\n}",
+        "file": "contracts/MathOperation.sol"
+      }
+    }
+  },
+  "contracts/HelloWorld.sol": {
+    "__sources__": {
+      "contracts/HelloWorld.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.26;\r\ncontract HelloWorld {\r\n    string public message;\r\n\r\n    constructor() {\r\n         \r\n    }\r\n\r\n    function getMessage() public view  returns (string memory) {\r\n        return message;\r\n    }\r\n\r\n    function setMessage(string memory newMessage) public {\r\n        message = newMessage;\r\n    }\r\n}",
+        "file": "contracts/HelloWorld.sol"
+      }
+    }
+  },
+  "contracts/EasyBank.sol": {
+    "__sources__": {
+      "contracts/EasyBank.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.26;\r\n\r\ncontract EasyBank {\r\n    mapping(address => uint256) balances;\r\n\r\n    function getBalance() public view returns (uint256) {\r\n        return balances[msg.sender];\r\n    }\r\n\r\n    function deposit() public payable {\r\n        balances[msg.sender] += msg.value;\r\n    }\r\n\r\n    function withdraw(uint256 amount) public {\r\n       require(balances[msg.sender] >= amount, \"Insuffient money to withdraw!!!\");\r\n       // balances[msg.sender] -= amount;\r\n        balances[msg.sender] = balances[msg.sender] - amount;\r\n        (bool success, ) = msg.sender.call{value: amount}(\"\");\r\n        require(success, \"Withdraw failed!!\");\r\n    }\r\n}",
+        "file": "contracts/EasyBank.sol"
+      }
+    }
   }
 }

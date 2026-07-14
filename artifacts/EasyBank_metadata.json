@@ -7,30 +7,19 @@
 		"abi": [
 			{
 				"inputs": [],
-				"stateMutability": "nonpayable",
-				"type": "constructor"
-			},
-			{
-				"inputs": [],
-				"name": "getMessage",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "message",
+				"name": "getBalance",
 				"outputs": [
 					{
-						"internalType": "string",
+						"internalType": "uint256",
 						"name": "",
-						"type": "string"
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -39,12 +28,12 @@
 			{
 				"inputs": [
 					{
-						"internalType": "string",
-						"name": "newMessage",
-						"type": "string"
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
 					}
 				],
-				"name": "setMessage",
+				"name": "withdraw",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -63,7 +52,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/HelloWorld.sol": "HelloWorld"
+			"contracts/EasyBank.sol": "EasyBank"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},
@@ -77,12 +66,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/HelloWorld.sol": {
-			"keccak256": "0x3f5b808ebe611e3def4396fbcec34daa7f974e6e19f103ec178b89e889375548",
+		"contracts/EasyBank.sol": {
+			"keccak256": "0x99b2cfd2212c90932c4655caeb37da76ff2f3074c7005a6232e56c98155ba484",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://2ecab4bf915b2b11e3f1aea56848d69cb56e1eec9703882dbdc242f0c8be6750",
-				"dweb:/ipfs/Qmddd639fGvR2sJiQYKbyL5zFr5SGLQsf6AznS4sAR85hh"
+				"bzz-raw://eaecedd49b301c13749187b2a44a7cb398dce2a12636a9efae3fa216f43298cc",
+				"dweb:/ipfs/QmdJ1i8tNn9Kjivij4c1mVSrfTSWBf2cmLxWhYagPY5uUb"
 			]
 		}
 	},
